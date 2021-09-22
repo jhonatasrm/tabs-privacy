@@ -33,4 +33,4 @@ LKzFPwvhxCfiXYmQbc1huu75jxsTmmEXbG
 To learn more about webextensions development, see this [Mozilla developer Network documentation](https://developer.mozilla.org/en-US/Add-ons/WebExtensions).
 
 ### License
-This repository is available under the [Mozilla Public License, version 2.0](https://github.com/jhonatasrm/nBother/blob/master/LICENSE).
+This repository is available under the [Mozilla Public License, version 2.0](https://github.com/jhonatasrm/tab-privacy/blob/main/LICENSE).
