@@ -1,0 +1,10 @@
+{
+  "extensionName": {
+    "message": "Tabs Privacy",
+    "description": "Tabs Privacy"
+  },
+  "extensionDescription": {
+    "message": "Esconda todas as abas ativas com apenas um click (muito útil quando compartilha a tela).",
+    "description": "Hide all your active tabs with just one click (very useful when sharing screen)."
+  }
+}
