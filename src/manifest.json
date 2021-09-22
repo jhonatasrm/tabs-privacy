@@ -1,0 +1,29 @@
+{
+  "manifest_version": 2,
+  "name": "__MSG_extensionName__",
+  "description": "__MSG_extensionDescription__",
+  "version": "1.0.0",
+  "homepage_url": "https://github.com/jhonatasrm/tab-privacy",
+  "default_locale": "en",
+  "author": "Jhonatas Machado",
+  "applications": {
+    "gecko": {
+      "strict_min_version": "61.0"
+    }
+  },
+  "icons": {
+    "48": "/res/icons/icon.png",
+    "96": "/res/icons/icon@2x.png"
+  },
+  "browser_action": {
+    "browser_style": true,
+    "default_icon": {
+      "16": "/res/icons/icon.png",
+      "32": "/res/icons/icon@2x.png"
+    }
+  },
+  "background": {
+    "scripts": ["/js/background.js"]
+  },
+  "permissions": ["tabs", "browserSettings", "activeTab", "tabHide", "<all_urls>"]
+}
