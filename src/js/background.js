@@ -1,6 +1,9 @@
 var arrayTabsIds = [];
 var tabs = '';
 var status = "true";
+var myStorage = window.localStorage;
+var iconLocalOff = "../res/icons/privacy_off.png";
+var iconLocalOn = "../res/icons/privacy_on.png";
 
 /* query for opened tabs */
 let querying = browser.tabs.query({});
@@ -20,9 +23,15 @@ function actionClick() {
   if(status == "true") {
     browser.tabs.hide(arrayTabsIds);
     status = "false";
+      browser.browserAction.setIcon({
+        path: iconLocalOn,
+      });
   } else {
     browser.tabs.show(arrayTabsIds);
     status = "true";
+    browser.browserAction.setIcon({
+      path: iconLocalOff,
+    });
   }
 }
 

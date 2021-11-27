@@ -12,15 +12,14 @@
     }
   },
   "icons": {
+    "16": "/res/icons/icon.png",
+    "32": "/res/icons/icon.png",
     "48": "/res/icons/icon.png",
-    "96": "/res/icons/icon@2x.png"
+    "96": "/res/icons/icon.png"
   },
   "browser_action": {
     "browser_style": true,
-    "default_icon": {
-      "16": "/res/icons/icon.png",
-      "32": "/res/icons/icon@2x.png"
-    }
+    "default_icon": "/res/icons/privacy_off.png"
   },
   "background": {
     "scripts": ["/js/background.js"]
