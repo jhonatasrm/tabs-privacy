@@ -5,6 +5,8 @@
 [<img align="right" src="https://img.shields.io/github/stars/jhonatasrm/tabs-privacy.svg">]()
 [<img align="right" src="https://img.shields.io/github/release/jhonatasrm/tabs-privacy.svg">](https://github.com/jhonatasrm/tabs-privacy/releases)
 
+
+![Tabs Privacy](src/res/icons/icon.png)
 # Tabs Privacy [<img align="right" src="https://addons.cdn.mozilla.net/static/img/addons-buttons/AMO-button_2.png">](https://addons.mozilla.org/en-US/firefox/addon/tabs-privacy/)
 Hide all your active tabs with just one click (very useful when sharing screen).
 
