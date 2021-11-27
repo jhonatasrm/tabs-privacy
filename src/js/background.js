@@ -12,6 +12,13 @@ querying.then(logTabs);
 /* click action */
 browser.browserAction.onClicked.addListener(actionClick);
 
+/* onCreated */
+browser.tabs.onCreated.addListener(handleCreated);
+
+/* onRemoved */
+browser.tabs.onRemoved.addListener(
+  (tabId) => { handleRemoved(tabId, true);
+});
 /*
     Tabs that are pinned cannot be hidden.
     Tabs that are sharing the screen, microphone or camera cannot be hidden.
@@ -19,7 +26,6 @@ browser.browserAction.onClicked.addListener(actionClick);
     Tabs that are in the process of being closed cannot be hidden.
 */
 function actionClick() {
-  logTabs(tabs);
   if(status == "true") {
     browser.tabs.hide(arrayTabsIds);
     status = "false";
@@ -38,5 +44,19 @@ function actionClick() {
 function logTabs(tabs) {
   for (let tab of tabs) {
     arrayTabsIds.push(tab.id);
+  }
+}
+
+function handleCreated(tab) {
+  if(!arrayTabsIds.includes(tab.id)){
+      arrayTabsIds.push(tab.id);
+    }
+}
+
+function handleRemoved(tabId, isOnRemoved) {
+  for( var i = 0; i < arrayTabsIds.length; i++){ 
+    if ( arrayTabsIds[i] === tabId) { 
+      arrayTabsIds.splice(i, 1); 
+    }
   }
 }
