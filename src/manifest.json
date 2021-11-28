@@ -19,7 +19,7 @@
   },
   "browser_action": {
     "browser_style": true,
-    "default_icon": "/res/icons/privacy_off.png"
+    "default_icon": "/res/icons/privacy_off_dark_icon.png"
   },
   "background": {
     "scripts": ["/js/background.js"]
