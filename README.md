@@ -4,11 +4,13 @@
 [<img align="right" src="https://img.shields.io/github/stars/jhonatasrm/tabs-privacy.svg">]()
 [<img align="right" src="https://img.shields.io/github/release/jhonatasrm/tabs-privacy.svg">](https://github.com/jhonatasrm/tabs-privacy/releases)
 
-
 ![Tabs Privacy](src/res/icons/icon.png)
-# Tabs Privacy 
+
+# Tabs Privacy
 
 Hide all your tabs with just one click. Very useful when sharing the screen and also to reduce the number of open tabs shown.
+
+![Tabs Privacy Screenshot](tabs-privacy.gif)
 
 ## Requirements
 
