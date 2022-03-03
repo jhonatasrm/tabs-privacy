@@ -6,7 +6,7 @@
 
 ![Tabs Privacy](src/res/icons/icon.png)
 
-# Tabs Privacy [<img align="right" src="https://addons.cdn.mozilla.net/static/img/addons-buttons/AMO-button_2.png">](https://addons.mozilla.org/en-US/firefox/addon/tabs-privacy/)
+# Tabs Privacy [<img align="right" src="https://addons.cdn.mozilla.net/static/img/addons-buttons/AMO-button_2.png">](https://addons.mozilla.org/firefox/addon/tabs-privacy/)
 
 Hide all your tabs with just one click. Very useful when sharing the screen and also to reduce the number of open tabs shown.
 
@@ -44,7 +44,7 @@ LKzFPwvhxCfiXYmQbc1huu75jxsTmmEXbG
 
 ## Learn More
 
-To learn more about webextensions development, see this [Mozilla developer Network documentation](https://developer.mozilla.org/en-US/Add-ons/WebExtensions).
+To learn more about webextensions development, see this [Mozilla developer Network documentation](https://developer.mozilla.org/Add-ons/WebExtensions).
 
 ### License
 
