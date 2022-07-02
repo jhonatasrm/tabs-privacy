@@ -6,7 +6,7 @@
 
 ![Tabs Privacy](src/res/icons/icon.png)
 
-# Tabs Privacy [<img align="right" src="https://addons.cdn.mozilla.net/static/img/addons-buttons/AMO-button_2.png">](https://addons.mozilla.org/firefox/addon/tabs-privacy/)
+# Tabs Privacy [<img align="right" style="width:auto;height:32px;" src="https://raw.githubusercontent.com/jhonatasrm/jhonatasrm.github.io/master/images/addon-firefox.png">](https://addons.mozilla.org/firefox/addon/tabs-privacy/)
 
 Hide all your tabs with just one click. Very useful when sharing the screen and also to reduce the number of open tabs shown.
 
