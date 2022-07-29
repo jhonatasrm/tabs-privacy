@@ -16,6 +16,17 @@
     "32": "/res/icons/icon.png",
     "48": "/res/icons/icon.png",
     "96": "/res/icons/icon.png"
+  },  
+  "commands": {
+    "toggle-feature": {
+      "suggested_key": {
+        "default": "Alt+L",
+        "mac": "Alt+L",
+        "linux": "Alt+L",
+        "windows": "Alt+L"
+      },
+      "description": "__MSG_shortcut__"
+    }
   },
   "browser_action": {
     "browser_style": true,
