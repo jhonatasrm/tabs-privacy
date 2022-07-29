@@ -6,5 +6,9 @@
   "extensionDescription": {
     "message": "Hide all your tabs with just one click. Very useful when sharing the screen and also to reduce the number of open tabs shown.",
     "description": "Hide all your tabs with just one click. Very useful when sharing the screen and also to reduce the number of open tabs shown."
+  },
+  "shortcut":{
+    "message": "Hide all your tabs",
+    "description": "Hide all your tabs"
   }
 }
