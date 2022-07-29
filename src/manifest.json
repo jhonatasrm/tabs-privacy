@@ -20,10 +20,10 @@
   "commands": {
     "toggle-feature": {
       "suggested_key": {
-        "default": "Alt+L",
-        "mac": "Alt+L",
-        "linux": "Alt+L",
-        "windows": "Alt+L"
+        "default": "Alt+P",
+        "mac": "Alt+P",
+        "linux": "Alt+P",
+        "windows": "Alt+P"
       },
       "description": "__MSG_shortcut__"
     }
