@@ -3,6 +3,12 @@ var tabs = '';
 var myStorage = window.localStorage;
 myStorage.setItem("status", "false");
 
+browser.commands.onCommand.addListener(function (command) {
+  if (command === "toggle-feature") {
+    actionClick();
+  }
+});
+
 /* gets current theme to set toolbar icon */
 getCurrentThemeInfo();
 
