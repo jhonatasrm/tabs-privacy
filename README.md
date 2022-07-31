@@ -19,7 +19,9 @@ Hide all your tabs with just one click. Very useful when sharing the screen and 
 ## Features
 
 1. Hide all tabs with one click
-2. Reduces the number of open tabs shown
+2. Hide all tabs with a shortcut (default Alt + P)
+3. Reduces the number of open tabs shown
+4. Languages supported: English and Brazilian Portuguese
 
 ## How to test this Add-on
 
