@@ -2,7 +2,7 @@
   "manifest_version": 2,
   "name": "__MSG_extensionName__",
   "description": "__MSG_extensionDescription__",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "homepage_url": "https://github.com/jhonatasrm/tabs-privacy",
   "default_locale": "en",
   "author": "Jhonatas Machado",
@@ -16,6 +16,17 @@
     "32": "/res/icons/icon.png",
     "48": "/res/icons/icon.png",
     "96": "/res/icons/icon.png"
+  },  
+  "commands": {
+    "toggle-feature": {
+      "suggested_key": {
+        "default": "Alt+P",
+        "mac": "Alt+P",
+        "linux": "Alt+P",
+        "windows": "Alt+P"
+      },
+      "description": "__MSG_shortcut__"
+    }
   },
   "browser_action": {
     "browser_style": true,
