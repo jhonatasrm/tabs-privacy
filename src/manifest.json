@@ -2,7 +2,7 @@
   "manifest_version": 2,
   "name": "__MSG_extensionName__",
   "description": "__MSG_extensionDescription__",
-  "version": "1.2.0",
+  "version": "1.2.2",
   "homepage_url": "https://github.com/jhonatasrm/tabs-privacy",
   "default_locale": "en",
   "author": "Jhonatas Machado",
@@ -30,7 +30,7 @@
   },
   "browser_action": {
     "browser_style": true,
-    "default_icon": "/res/icons/privacy_off_dark_icon.png"
+    "default_icon": "/res/icons/privacy_off.png"
   },
   "background": {
     "scripts": ["/js/background.js"]

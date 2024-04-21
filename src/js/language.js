@@ -1,10 +1,16 @@
-let textElements = document.querySelectorAll('[data-manifest]');
-for (let element of textElements) {
-    element.textContent = Manifest[element.dataset.manifest];
-}
+document.querySelectorAll('[data-manifest]').forEach(element => {
+    const manifestKey = element.dataset.manifest;
+    if (manifestKey && Manifest[manifestKey]) {
+        element.textContent = Manifest[manifestKey];
+    }
+});
 
-textElements = document.querySelectorAll('[data-i18n]');
-
-for (let element of textElements) {
-   element.innerText = browser.i18n.getMessage(element.dataset.i18n);
-}
+document.querySelectorAll('[data-i18n]').forEach(element => {
+    const i18nKey = element.dataset.i18n;
+    if (i18nKey) {
+        const message = browser.i18n.getMessage(i18nKey);
+        if (message) {
+            element.innerText = message;
+        }
+    }
+});
