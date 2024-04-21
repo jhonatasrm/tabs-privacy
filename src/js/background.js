@@ -1,93 +1,70 @@
-var arrayTabsIds = [];
-var tabs = '';
-var myStorage = window.localStorage;
-myStorage.setItem("status", "false");
+// Initialize variables
+let arrayTabsIds = [];
+const myStorage = window.localStorage;
+myStorage.setItem("status", "true");
 
+// Listen for browser commands
 browser.commands.onCommand.addListener(function (command) {
   if (command === "toggle-feature") {
     actionClick();
   }
 });
 
-/* gets current theme to set toolbar icon */
-getCurrentThemeInfo();
+// Listen for theme updates
+browser.theme.onUpdated.addListener(getAction);
 
-/* calls when the theme is changed */
-browser.theme.onUpdated.addListener(getCurrentThemeInfo);
+// Fetch currently opened tabs
+browser.tabs.query({}).then(logTabs);
 
-/* query for opened tabs */
-let querying = browser.tabs.query({});
-querying.then(logTabs);
-
-/* click action */
+// Listen for click action on browser action icon
 browser.browserAction.onClicked.addListener(actionClick);
 
-/* onCreated */
+// Listen for tab creation
 browser.tabs.onCreated.addListener(handleCreated);
 
-/* onRemoved */
-browser.tabs.onRemoved.addListener(
-  (tabId) => { handleRemoved(tabId, true);
-});
-/*
-    Tabs that are pinned cannot be hidden.
-    Tabs that are sharing the screen, microphone or camera cannot be hidden.
-    The current active tab cannot be hidden.
-    Tabs that are in the process of being closed cannot be hidden.
-*/
+// Listen for tab removal
+browser.tabs.onRemoved.addListener(handleRemoved);
+
+// Handle click action
 function actionClick() {
-  getCurrentThemeInfo(true);
+  getAction();
 }
 
+// Log tabs
 function logTabs(tabs) {
-  for (let tab of tabs) {
+  arrayTabsIds = tabs.map(tab => tab.id);
+}
+
+// Handle tab creation
+function handleCreated(tab) {
+  if (!arrayTabsIds.includes(tab.id)) {
     arrayTabsIds.push(tab.id);
   }
 }
 
-function handleCreated(tab) {
-  if(!arrayTabsIds.includes(tab.id)){
-      arrayTabsIds.push(tab.id);
-    }
-}
-
-function handleRemoved(tabId, isOnRemoved) {
-  for( var i = 0; i < arrayTabsIds.length; i++){ 
-    if ( arrayTabsIds[i] === tabId) { 
-      arrayTabsIds.splice(i, 1); 
-    }
+// Handle tab removal
+function handleRemoved(tabId) {
+  const index = arrayTabsIds.indexOf(tabId);
+  if (index !== -1) {
+    arrayTabsIds.splice(index, 1);
   }
 }
 
-function getStyle(themeInfo) {
-  if(myStorage.getItem("status") == "true") {
-    browser.tabs.hide(arrayTabsIds);
-    myStorage.setItem("status", "false");
-      if(themeInfo.colors.frame.charAt(1) !== "f"){
-        browser.browserAction.setIcon({
-          path: "../res/icons/privacy_on_dark_icon.png",
-        });
-      }else {
-        browser.browserAction.setIcon({
-          path: "../res/icons/privacy_on_light_icon.png",
-        });
-      }
-  } else {
-    browser.tabs.show(arrayTabsIds);
-    myStorage.setItem("status", "true");
-    if(themeInfo.colors.frame.charAt(1) !== "f"){
-      browser.browserAction.setIcon({
-        path: "../res/icons/privacy_off_dark_icon.png",
-      });
-    }else {
-      browser.browserAction.setIcon({
-        path: "../res/icons/privacy_off_light_icon.png",
-      });
-    }
-  }
-}
+// Apply style based on theme
+async function getAction() {
+  const status = myStorage.getItem("status") === "true";
+  const iconPath = `../res/icons/privacy_${status ? "on" : "off"}.png`;
 
-async function getCurrentThemeInfo(clicked) {
-  var themeInfo = await browser.theme.getCurrent();
-  getStyle(themeInfo);
+  // Hide or show tabs based on status
+  browser.tabs[status ? 'hide' : 'show'](arrayTabsIds);
+  
+  // Update status
+  myStorage.setItem("status", String(!status));
+  
+  // Set icon path
+  browser.browserAction.setIcon({ path: iconPath });
+  
+  // Set title based on status
+  const title = status ? "Tabs Privacy [ " + browser.i18n.getMessage("enabled") + " ]" : "Tabs Privacy [ " + browser.i18n.getMessage("disabled") + " ]";
+  browser.browserAction.setTitle({ title });
 }

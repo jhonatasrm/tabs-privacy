@@ -10,5 +10,13 @@
   "shortcut":{
     "message": "Oculte todas as suas abas",
     "description": "Hide all your tabs"
-  }
+  },
+  "enabled": {
+    "message": "Ativado",
+    "description": "The feature is currently active."
+  },
+  "disabled": {
+    "message": "Desativado",
+    "description": "The feature is currently inactive."
+  } 
 }

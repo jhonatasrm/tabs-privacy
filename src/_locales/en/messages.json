@@ -10,5 +10,13 @@
   "shortcut":{
     "message": "Hide all your tabs",
     "description": "Hide all your tabs"
-  }
+  },
+  "enabled": {
+    "message": "Enabled",
+    "description": "The feature is currently active."
+  },
+  "disabled": {
+    "message": "Disabled",
+    "description": "The feature is currently inactive."
+  }  
 }
