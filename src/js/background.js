@@ -19,10 +19,8 @@ browser.tabs.query({}).then(logTabs);
 // Listen for click action on browser action icon
 browser.browserAction.onClicked.addListener(actionClick);
 
-// Listen for tab creation
+// Listen for tab creation and removal
 browser.tabs.onCreated.addListener(handleCreated);
-
-// Listen for tab removal
 browser.tabs.onRemoved.addListener(handleRemoved);
 
 // Handle click action
@@ -55,16 +53,20 @@ async function getAction() {
   const status = myStorage.getItem("status") === "true";
   const iconPath = `../res/icons/privacy_${status ? "on" : "off"}.png`;
 
-  // Hide or show tabs based on status
-  browser.tabs[status ? 'hide' : 'show'](arrayTabsIds);
+  // Fetch current tabs
+  const tabs = await browser.tabs.query({});
+  const arrayTabsIds = tabs.map(tab => tab.id);
+
+  // Only hide or show if supported
+  if (browser.tabs.hide && browser.tabs.show) {
+    await browser.tabs[status ? 'hide' : 'show'](arrayTabsIds);
+  }
   
-  // Update status
-  myStorage.setItem("status", String(!status));
-  
-  // Set icon path
-  browser.browserAction.setIcon({ path: iconPath });
-  
-  // Set title based on status
-  const title = status ? "Tabs Privacy [ " + browser.i18n.getMessage("enabled") + " ]" : "Tabs Privacy [ " + browser.i18n.getMessage("disabled") + " ]";
-  browser.browserAction.setTitle({ title });
+  // Update status only if needed
+  if (myStorage.getItem("status") !== String(!status)) {
+    myStorage.setItem("status", String(!status));
+    browser.browserAction.setIcon({ path: iconPath });
+    const title = status ? "Tabs Privacy [ " + browser.i18n.getMessage("enabled") + " ]" : "Tabs Privacy [ " + browser.i18n.getMessage("disabled") + " ]";
+    browser.browserAction.setTitle({ title });
+  }
 }
